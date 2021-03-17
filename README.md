@@ -17,7 +17,7 @@ This repository contains a starting point for creating your own basic [OpenShift
 
 ### Community Origin Base Image (Default)
 
-This template repostiroy is setup to use the community base image by default so the build command is simple:
+This template repository is setup to use the community base image by default so the build command is simple:
 
 ```
 $ podman build -t my-must-gather .
