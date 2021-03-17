@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Setup the path where files are going
+BASE_COLLECTION_PATH="${1:-/must-gather}"
+mkdir -p "${BASE_COLLECTION_PATH}"
+
+# Example command
+oc whoami
+oc describe nodes > ${BASE_COLLECTION_PATH}/nodes.txt
+
+exit 0
