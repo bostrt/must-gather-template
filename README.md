@@ -45,7 +45,7 @@ $ podman login quay.io
 $ podman push quay.io/bostrt/my-must-gather:latest
 ```
 
-*Reminder: Do you want your image public? Check repo settings on https://quay.io!*
+*Reminder: Do you want your image public? Check registry repo settings on https://quay.io!*
 
 ## Use Your Image
 
@@ -54,3 +54,16 @@ At this point, you can use your new Must Gather image.
 ```
 $ oc adm must-gather --image=quay.io/bostrt/my-must-gather
 ```
+
+### Image vs ImageStream
+
+If you are doing rapid development and frequently pushing an updated images to your container registry repo, you may need to use an ImageStream like so:
+
+```
+$ oc import-image my-must-gather --from=quay.io/bostrt/my-must-gather:latest --confirm
+$ oc adm must-gather --image-stream=default/my-must-gather
+```
+
+Each time you push a new updated image to your registry repo, you can then sync it in OpenShift by running the same `oc import-image` command above. 
+
+*NOTE: This is necessary since the Must Gather Pod is created with an image pull policy of [`IfNotPresent`](https://github.com/openshift/oc/blob/master/pkg/cli/admin/mustgather/mustgather.go#L623) and not `Always`.*
