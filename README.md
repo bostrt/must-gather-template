@@ -11,6 +11,8 @@ This repository contains a starting point for creating your own basic [OpenShift
 	- See [`scripts/gather`](./scripts/gather) for an example of saving `oc describe nodes` output.
 3. Save your changes and proceed with Build instructions below.
 
+See a [live demo here](https://asciinema.org/a/30aNuUNFSq0DpAmSDaxQWHyUW).
+
 
 ## Build
 
